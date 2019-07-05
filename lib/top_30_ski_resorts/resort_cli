@@ -1,0 +1,7 @@
+class Resort
+ 
+ def resort_selector
+  puts "Which state are you skiing in?"
+ end
+ 
+end
