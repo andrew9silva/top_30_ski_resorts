@@ -21,6 +21,8 @@ class Resort
   elsif "Canada"
    puts #canadaresorts
    
+  elsif "Wyoming"
+   puts #wyomingresorts
    
   else 
    puts "No resorts from there are included on the list."
