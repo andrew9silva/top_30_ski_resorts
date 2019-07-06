@@ -13,6 +13,7 @@ require "top_30_ski_resorts"
 require "irb"
 IRB.start(__FILE__)
 
+require_relative "../lib/top_30_ski_resorts.rb"
 
 
 
