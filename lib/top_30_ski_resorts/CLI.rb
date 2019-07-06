@@ -3,13 +3,16 @@ class Top30SkiResorts::CLI
   def resorts
     puts "Going on a ski trip this year? Y/N?"
     
-    case
+    response = " "
+    
+    case response 
     when "Y"
       states_array
       
     else
       "Too bad, you're missing out!"
     end
+    
   end
   
   def states_array
