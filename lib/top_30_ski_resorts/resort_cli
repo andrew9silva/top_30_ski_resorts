@@ -1,28 +1,28 @@
 class Resort
  
  def resort_selector
-  puts "Which state are you skiing in?"
+   "Which state are you skiing in?"
   
   if "Colorado"
-   puts #coloradoresorts
+   #[coloradoresorts]
    
   elsif "Utah"
-   puts #utahresorts
+   #[utahresorts]
    
   elsif "California"
-   puts #californiaresorts
+   #[californiaresorts]
    
   elsif "Montana"
-   puts #montanaresorts
+   #[montanaresorts]
    
   elsif "New Mexico"
-   puts #newmexicoresorts
+   #[newmexicoresorts]
    
   elsif "Canada"
-   puts #canadaresorts
+   #[canadaresorts]
    
   elsif "Wyoming"
-   puts #wyomingresorts
+   #[wyomingresorts]
    
   else 
    puts "No resorts from there are included on the list."
