@@ -13,8 +13,7 @@ class Top30SkiResorts::CLI
   end
   
   def states_array
-    puts "which state do you want to ski in?"
-  
+    puts "Which state do you want to ski in?"
   end
     
 end
