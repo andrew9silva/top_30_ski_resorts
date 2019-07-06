@@ -9,7 +9,7 @@ class Top30SkiResorts::CLI
       states
     elsif answer == "N"
       puts "Aww man that's no fun!"
-    else answer != "Y" || answer != "N"
+    else 
       puts "Sorry not sure what you are saying."
     end
   end
