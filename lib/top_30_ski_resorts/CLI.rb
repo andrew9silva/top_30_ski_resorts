@@ -1,22 +1,12 @@
 class Top30SkiResorts::CLI 
   
   def resorts
-    puts "Going on a ski trip this year? Y/N?"
-    
-    response = " "
-    
-    case response 
-    when "Y"
-      states_array
-      
-    else
-      "Too bad, you're missing out!"
-    end
-    
+    puts "Are you going on a ski trip this year? (Y/N)"
+    states_array
   end
   
   def states_array
-    puts "Which state do you want to ski in?"
+    puts "Where do you want to ski? California, Canada, Colorado, Montana, New Mexico, Utah, Wyoming."
   end
     
 end
