@@ -6,7 +6,7 @@ class Top30SkiResorts::CLI
     answer = gets.strip
     
     if answer == "Y"
-      states
+      places
     elsif answer == "N"
       puts "Aww man that's no fun!"
     else 
@@ -14,26 +14,31 @@ class Top30SkiResorts::CLI
     end
   end
   
-  def states
+  def places
+    place = nil
+    
+    while place != "Done"
     puts "Where do you want to ski? California, Canada, Colorado, Montana, New Mexico, Utah, Wyoming."
-    state = gets.strip
+    place = gets.strip
     
-    case state
-    when "California"
-      puts "california_array"
-    when "Canada"
-      puts "canada_array"
-    when "Colorado"
-      puts "colorado_array"
-    when "Montana"
-      puts "montana_array"
-    when "New Mexico"
-      puts "new_mexico_array"
-    when "Utah"
-      puts "utah_array"
-    when "Wyoming"
-      puts "wyoming_array"
-    end
+     case place
+     when "California"
+       puts "california_array"
+     when "Canada"
+       puts "canada_array"
+     when "Colorado"
+       puts "colorado_array"
+     when "Montana"
+       puts "montana_array"
+     when "New Mexico"
+       puts "new_mexico_array"
+     when "Utah"
+       puts "utah_array"
+     when "Wyoming"
+       puts "wyoming_array"
+     else 
+       puts "I guess there aren't any awesome resorts there..."
+     end
+   end
   end
-    
 end
