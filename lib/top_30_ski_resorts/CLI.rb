@@ -3,10 +3,14 @@ class Top30SkiResorts::CLI
   def resorts
     puts "Are you going on a ski trip this year? (Y/N)"
     
-    if "Y"
+    answer = gets.strip
+    
+    if answer == "Y"
       states
-    else
-      "Aww man that's no fun!"
+    elsif answer == "N"
+      puts "Aww man that's no fun!"
+    else answer != "Y" || answer != "N"
+      puts "Sorry not sure what you are saying."
     end
   end
   
@@ -19,6 +23,16 @@ class Top30SkiResorts::CLI
       puts "california_array"
     when "Canada"
       puts "canada_array"
+    when "Colorado"
+      puts "colorado_array"
+    when "Montana"
+      puts "montana_array"
+    when "New Mexico"
+      puts "new_mexico_array"
+    when "Utah"
+      puts "utah_array"
+    when "Wyoming"
+      puts "wyoming_array"
     end
   end
     
