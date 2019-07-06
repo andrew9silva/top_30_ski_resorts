@@ -3,7 +3,8 @@ class Top30SkiResorts::CLI
   def resorts
     puts "Going on a ski trip this year? Y/N?"
     
-    if "Y"
+    case
+    when "Y"
       states_array
       
     else
