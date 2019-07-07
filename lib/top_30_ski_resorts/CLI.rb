@@ -11,6 +11,7 @@ class Top30SkiResorts::CLI
       puts "Aww man that's no fun!"
     else 
       puts "Sorry not sure what you are saying."
+      resorts
     end
   end
   
