@@ -1,5 +1,7 @@
 class Top30SkiResorts::CLI 
   
+  
+  
   def resorts
     puts "Are you going on a ski trip this year? (Y/N)"
     
