@@ -1,9 +1,9 @@
 class Top30SkiResorts::CLI 
   
   
-  
   def resorts
     puts "Are you going on a ski trip this year? (Y/N)"
+    
     
     answer = gets.strip
     
@@ -16,6 +16,7 @@ class Top30SkiResorts::CLI
       resorts
     end
   end
+  
   
   def places
     place = nil
@@ -30,7 +31,7 @@ class Top30SkiResorts::CLI
      when "Canada"
        puts "canada_array"
      when "Colorado"
-       puts "colorado_array"
+       Top30SkiResorts::Resorts.colorado
      when "Montana"
        puts "montana_array"
      when "New Mexico"
