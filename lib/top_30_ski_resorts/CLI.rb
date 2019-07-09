@@ -31,17 +31,17 @@ class Top30SkiResorts::CLI
      when "California"
        Top30SkiResorts::Resorts.california
      when "Canada"
-       puts "canada_array"
+       Top30SkiResorts::Resorts.canada
      when "Colorado"
        Top30SkiResorts::Resorts.colorado
      when "Montana"
-       puts "montana_array"
+       Top30SkiResorts::Resorts.montana
      when "New Mexico"
-       puts "new_mexico_array"
+       Top30SkiResorts::Resorts.new_mexico
      when "Utah"
-       puts "utah_array"
+       Top30SkiResorts::Resorts.utah
      when "Wyoming"
-       puts "wyoming_array"
+       Top30SkiResorts::Resorts.wyoming
      else 
        puts "I guess there aren't any awesome resorts there..."
      end
