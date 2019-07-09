@@ -22,12 +22,14 @@ class Top30SkiResorts::CLI
     place = nil
     
     while place != "Done"
-    puts "Where do you want to ski? California, Canada, Colorado, Montana, New Mexico, Utah, Wyoming."
+    puts "Where do you want to ski? Alaska, California, Canada, Colorado, Montana, New Mexico, Utah, Wyoming."
     place = gets.strip
     
      case place
+     when "Alaska"
+       Top30SkiResorts::Resorts.alaska
      when "California"
-       puts "california_array"
+       Top30SkiResorts::Resorts.california
      when "Canada"
        puts "canada_array"
      when "Colorado"
