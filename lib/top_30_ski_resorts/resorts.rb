@@ -1,4 +1,5 @@
 require 'pry'
+require 'nokogiri'
 
 class Top30SkiResorts::Resorts
   
@@ -12,6 +13,8 @@ class Top30SkiResorts::Resorts
   
   def self.colorado
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
+    
+    binding.pry
   end
   
   def self.california
