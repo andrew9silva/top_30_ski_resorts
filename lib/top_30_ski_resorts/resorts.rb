@@ -1,5 +1,6 @@
 require 'pry'
 require 'nokogiri'
+require 'open-uri'
 
 class Top30SkiResorts::Resorts
   
@@ -12,8 +13,8 @@ class Top30SkiResorts::Resorts
   
   
   def self.colorado
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
     
+    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
     binding.pry
   end
   
