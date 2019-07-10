@@ -14,9 +14,16 @@ class Top30SkiResorts::Resorts
   
   def self.colorado
     
+    array = []
+    
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    binding.pry
-  end
+    
+    document.css("table.index-table-2017").each do |resort|
+      binding.pry
+    end
+    
+    
+    array << 
   
   def self.california
     puts "Mammoth, Squaw Valley, Kirkwood"
@@ -48,4 +55,4 @@ class Top30SkiResorts::Resorts
   
 end
     
-  
+end  
