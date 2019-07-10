@@ -1,3 +1,5 @@
+require 'pry'
+
 class Top30SkiResorts::Resorts
   
   #want to scrape and return hash that has each resort as a :key and the 'Full Report' link as the 'value' in each state's method.  example for Colorado.... "{Telluride Ski Resort" => "/ski-resorts/163-telluride-ski-resort, "Vail Ski Resort" => "/ski-resorts/169-vail-ski-resort"... etc.
@@ -10,7 +12,6 @@ class Top30SkiResorts::Resorts
   
   def self.colorado
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    binding.pry
   end
   
   def self.california
