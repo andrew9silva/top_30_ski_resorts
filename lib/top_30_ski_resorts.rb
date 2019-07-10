@@ -7,3 +7,6 @@ end
 
 require_relative './top_30_ski_resorts/CLI'
 require_relative './top_30_ski_resorts/resorts'
+require 'nokogiri'
+require 'pry'
+require 'open_uri'
