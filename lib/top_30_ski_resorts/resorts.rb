@@ -11,7 +11,9 @@ class Top30SkiResorts::Resorts
   
   
   
-  self.full_report = document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
+  #self.full_report = document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
+  #self.state = document.search("span.desktop-700").first.children.text
+  
   
   
   def self.colorado
@@ -20,12 +22,12 @@ class Top30SkiResorts::Resorts
     
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
     
-      #full_report = document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
-      binding.pry
+    if document.search("span.desktop-700").first.children.text == "CO"
+      document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
+    else
+      nil 
     end
-    
-    
-    array << 
+  end
   
   def self.california
     puts "Mammoth, Squaw Valley, Kirkwood"
@@ -57,4 +59,3 @@ class Top30SkiResorts::Resorts
   
 end
     
-end  
