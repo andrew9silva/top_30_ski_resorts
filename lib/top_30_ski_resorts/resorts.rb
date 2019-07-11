@@ -19,6 +19,7 @@ class Top30SkiResorts::Resorts
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
     
     document.css("table.index-table-2017").each do |resort|
+      #report = document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
       binding.pry
     end
     
