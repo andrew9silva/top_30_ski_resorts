@@ -26,6 +26,8 @@ class Top30SkiResorts::CLI
     place = gets.strip
     
      case place
+     when "Done"
+       puts "Maybe next time."
      when "Alaska"
        Top30SkiResorts::Resorts.alaska
      when "California"
