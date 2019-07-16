@@ -11,8 +11,8 @@ class Top30SkiResorts::Resorts
   
   
   
-  #self.full_report = document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
-  #self.state = document.search("span.desktop-700").first.children.text
+  #full_report = document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
+  #state = document.search("span.desktop-700").first.children.text
   
   
   
@@ -21,10 +21,14 @@ class Top30SkiResorts::Resorts
     colorado_resorts = []
     
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
+    
+    
+    #the if portion here is not working appropriately.  Got "test" to be returned when running./bin/ski_reorts.rb
+    
+    #Do I need a different way to discern the states/which resort links to pull up?
      
     if document.search("span.desktop-700").first.children.text == "CO"
       colorado_resorts << document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
-      
     else
       nil 
     end
@@ -62,7 +66,6 @@ class Top30SkiResorts::Resorts
      
     if document.search("span.desktop-700").first.children.text == "WY"
       wyoming_resorts << document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
-      
     else
       nil 
     end
