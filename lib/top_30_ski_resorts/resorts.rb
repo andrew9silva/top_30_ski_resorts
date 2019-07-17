@@ -11,8 +11,8 @@ class Top30SkiResorts::Resorts
   
   
   
-  @@full_report = document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
-  @@state = document.search("span.desktop-700").first.children.text
+  #full_report = document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href")
+  #state = document.search("span.desktop-700").first.children.text
   
   
   
@@ -27,8 +27,8 @@ class Top30SkiResorts::Resorts
     
     #Do I need a different way to discern the states/which resort links to pull up?
      
-    if @@state == "CO"
-      colorado_resorts << @@report 
+    if document.search("span.desktop-700").first.children.text == "CO"
+      colorado_resorts << document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href") 
     else
       nil 
     end
@@ -64,8 +64,8 @@ class Top30SkiResorts::Resorts
     
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
      
-    if @@state == "WY"
-      wyoming_resorts << @@report 
+    if document.search("span.desktop-700").first.children.text == "WY"
+      wyoming_resorts << document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href") 
     else
       nil 
     end
