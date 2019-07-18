@@ -19,7 +19,8 @@ class Top30SkiResorts::Resorts
   def self.colorado
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
     colorado_resorts = []
-    resorts = document.search("td.name-rank")[0..29].children.children[2].text
+    resorts = document.css("td.name-rank")[0..29].children.children[2].text
+    report = document.search("td.name-rank")[0..29].children[0].attr("href")
     
     
     
@@ -29,11 +30,13 @@ class Top30SkiResorts::Resorts
     
     #Do I need a different way to discern the states/which resort links to pull up?
      
-    if resorts.include?("CO") 
-      document.search("td.name-rank")[0..29].children[0].attr("href")
+    if resorts == "CO" 
+      report
     else
       nil 
     end
+    colorado_resorts << report
+    colorado_resorts
     
   end
   
@@ -62,15 +65,19 @@ class Top30SkiResorts::Resorts
   end
   
   def self.wyoming
-    wyoming_resorts = []
-    
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
+    wyoming_resorts = []
+    resorts = document.css("td.name-rank")[0..29].children.children[2].text
+    report = document.search("td.name-rank")[0..29].children[0].attr("href")
+    
+    
      
-    if document.search("span.desktop-700").first.children.text == "WY"
-      wyoming_resorts << document.search("a#btn-rank-index.btn-more-snow-index.more-profile").first.attr("href") 
+    if resorts == "WY"
+      report
     else
-      nil 
+      nil
     end
+    wyoming_resorts << report
     wyoming_resorts
   end
   
