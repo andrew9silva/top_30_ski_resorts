@@ -29,11 +29,11 @@ class Top30SkiResorts::Resorts
     #the if portion here is not working appropriately.  Got "test" to be returned when running./bin/ski_resorts.rb
     
     #Do I need a different way to discern the states/which resort links to pull up?
-     
-    if resorts == "CO" 
+      
+    if resorts == "CO"
       report
     else
-      nil 
+      puts "test"
     end
     colorado_resorts << report
     colorado_resorts
