@@ -78,7 +78,7 @@ class Top30SkiResorts::Resorts
       nil
     end
     wyoming_resorts << report
-    wyoming_resorts
+    print wyoming_resorts
   end
   
 end
