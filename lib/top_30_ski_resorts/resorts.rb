@@ -12,31 +12,21 @@ class Top30SkiResorts::Resorts
   
   #full_report = document.search("td.name-rank")[0].children[0].attr("href")
   #state = document.search("td.name-rank")[0].children.children[2].text
-  document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-  
+  #document = Nokogiri::HTML(open('https://www.zrankings.com/'))
+  #document.css("table.index-table-2017").each do |mountain|
   
   def self.scrape
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    resorts = []
+    
+    array = []
+    
+    #document.css("table.index-table-2017").each do |mountain|
     
     
-    document.css("table.index-table-2017").each do |mountain|
-      mountains = {}
-      binding.pry
-      mountains[:state] = #mountain.css("a#btn-rank-index.btn-more-snow.index.more-profile")
-    end
-  end
-  
+  end 
   
   def self.colorado
-      #the if portion here is not working appropriately.  Got "test" to be returned when running./bin/ski_resorts.rb
-    
-    #Do I need a different way to discern the states/which resort links to pull up?
-    #document.css("td.name-rank")[0..29].children.children[2].text
-    #document.search("td.name-rank")[0..29].children[0].attr("href")
-    
-    
-      
+    puts "Colorado resorts"
   end
   
   def self.california
@@ -64,20 +54,13 @@ class Top30SkiResorts::Resorts
   end
   
   def self.wyoming
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    wyoming_resorts = []
-    resorts = document.css("td.name-rank")[0..29].children.children[2].text
-    report = document.search("td.name-rank")[0..29].children[0].attr("href")
-    
-    
-     
-    if resorts == "WY"
-      report
-    else
-      nil
-    end
-    wyoming_resorts << report
-    print wyoming_resorts
+    puts "Jackson Hole"
   end
 end
+
+#the if portion here is not working appropriately.  Got "test" to be returned when running./bin/ski_resorts.rb
+    
+    #Do I need a different way to discern the states/which resort links to pull up?
+    #document.css("td.name-rank")[0..29].children.children[2].text
+    #document.search("td.name-rank")[0..29].children[0].attr("href")
     
