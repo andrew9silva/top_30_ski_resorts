@@ -20,8 +20,12 @@ class Top30SkiResorts::Resorts
     
     array = []
     
-    #document.css("table.index-table-2017").each do |mountain|
-    
+    document.css("table.index-table-2017").each do |mountain|
+      binding.pry
+      mountains = {}
+      mountains[:report] = mountain.css("a")[2].attributes["href"].value
+      mountains[:state] = 
+    end
     
   end 
   
