@@ -10,34 +10,33 @@ class Top30SkiResorts::Resorts
   
   
   
-  
-  #full_report = document.search("td.name-rank")[0..29].children[0].attr("href")
-  #state = document.search("td.name-rank")[0..29].children.children[2].text
+  #full_report = document.search("td.name-rank")[0].children[0].attr("href")
+  #state = document.search("td.name-rank")[0].children.children[2].text
   document = Nokogiri::HTML(open('https://www.zrankings.com/'))
   
   
-  def self.colorado
+  def self.scrape
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    colorado_resorts = []
-    resorts = document.css("td.name-rank")[0..29].children.children[2].text
-    report = document.search("td.name-rank")[0..29].children[0].attr("href")
+    resorts = []
     
     
-    
-    
-    
-    #the if portion here is not working appropriately.  Got "test" to be returned when running./bin/ski_resorts.rb
+    document.css("table.index-table-2017").each do |mountain|
+      mountains = {}
+      binding.pry
+      mountains[:state] = #mountain.css("a#btn-rank-index.btn-more-snow.index.more-profile")
+    end
+  end
+  
+  
+  def self.colorado
+      #the if portion here is not working appropriately.  Got "test" to be returned when running./bin/ski_resorts.rb
     
     #Do I need a different way to discern the states/which resort links to pull up?
-      
-    if resorts == "CO"
-      report
-    else
-      puts "test"
-    end
-    colorado_resorts << report
-    colorado_resorts
+    #document.css("td.name-rank")[0..29].children.children[2].text
+    #document.search("td.name-rank")[0..29].children[0].attr("href")
     
+    
+      
   end
   
   def self.california
@@ -80,6 +79,5 @@ class Top30SkiResorts::Resorts
     wyoming_resorts << report
     print wyoming_resorts
   end
-  
 end
     
