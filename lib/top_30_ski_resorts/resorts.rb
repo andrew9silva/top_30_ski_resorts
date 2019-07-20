@@ -23,7 +23,8 @@ class Top30SkiResorts::Resorts
     #state = mountain.css(".desktop-700").children.text.scan(/(\w{2})/)
     
     document.css("table.index-table-2017").each do |mountain|
-      if mountain.css(".desktop-700").children.text.scan(/(\w{2})/) == "CO"
+      binding.pry
+      if mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten
         mountain.css("a")[2].attributes["href"].value
       else 
         nil
