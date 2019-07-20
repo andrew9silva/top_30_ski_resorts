@@ -18,15 +18,17 @@ class Top30SkiResorts::Resorts
   def self.scrape
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
     
-    array = []
+    #mountains = {}
+    #report = mountain.css("a")[2].attributes["href"].value
+    #state = mountain.css(".desktop-700").children.text.scan(/(\w{2})/)
     
     document.css("table.index-table-2017").each do |mountain|
-      binding.pry
-      #mountains = {}
-      #mountains[:report] = mountain.css("a")[2].attributes["href"].value
-      #mountains[:state] = mountain.css(".desktop-700").children
+      if mountain.css(".desktop-700").children.text.scan(/(\w{2})/) == "CO"
+        mountain.css("a")[2].attributes["href"].value
+      else 
+        nil
+      end
     end
-    
   end 
   
   def self.colorado

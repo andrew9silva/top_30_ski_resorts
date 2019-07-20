@@ -35,7 +35,7 @@ class Top30SkiResorts::CLI
      when "Canada"
        Top30SkiResorts::Resorts.canada
      when "Colorado"
-       Top30SkiResorts::Resorts.colorado
+       Top30SkiResorts::Resorts.scrape
      when "Montana"
        Top30SkiResorts::Resorts.montana
      when "New Mexico"
