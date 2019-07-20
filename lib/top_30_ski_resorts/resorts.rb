@@ -20,11 +20,10 @@ class Top30SkiResorts::Resorts
     
     #mountains = {}
     #report = mountain.css("a")[2].attributes["href"].value
-    #state = mountain.css(".desktop-700").children.text.scan(/(\w{2})/)
+    #state = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.collect{ |x| x == "CO" }
     
     document.css("table.index-table-2017").each do |mountain|
-      binding.pry
-      if mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten
+      if mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.collect{ |x| x == "CO" }
         mountain.css("a")[2].attributes["href"].value
       else 
         nil
