@@ -4,6 +4,15 @@ require 'open-uri'
 
 class Top30SkiResorts::Resorts
   
+  def self.scrape_resort_cell
+    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
+    reports = {}
+    
+    binding.pry
+    
+    document.css("tbody.single-resort-cell")
+  end 
+  
   #want to return array with link to each resort in particular state in the top 30.
   
   
