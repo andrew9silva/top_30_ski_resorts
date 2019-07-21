@@ -15,19 +15,24 @@ class Top30SkiResorts::Resorts
   
   def self.scrape
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
+    mountains =[]
     
-    #mountains = {}
     #report = mountain.css("a")[2].attributes["href"].value
     #state = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.collect{ |x| x == "CO" }
     
     document.css("table.index-table-2017").each do |mountain|
-      binding.pry
-      if mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "CO" }
-        mountain.css("a")[2].attributes["href"].value
-      else 
-        nil
-      end
+      states = {}
+      states[:alaska] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "AK" }
+      states[:california] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "CA" }
+      states[:canada] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "BC" }
+      states[:colorado] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "CO" }
+      states[:montana] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "MT" }
+      states[:new_mexico] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "NM" }
+      states[:utah] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "UT" }
+      states[:wyoming] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "WY" }
+      mountains << states
     end
+    mountains
   end 
   
   def self.colorado
