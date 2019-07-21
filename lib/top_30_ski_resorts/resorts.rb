@@ -4,8 +4,6 @@ require 'open-uri'
 
 class Top30SkiResorts::Resorts
   
-  attr_accessor :state, :full_report
-  
   #want to return array with link to each resort in particular state in the top 30.
   
   
@@ -23,7 +21,8 @@ class Top30SkiResorts::Resorts
     #state = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.collect{ |x| x == "CO" }
     
     document.css("table.index-table-2017").each do |mountain|
-      if mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.collect{ |x| x == "CO" }
+      binding.pry
+      if mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "CO" }
         mountain.css("a")[2].attributes["href"].value
       else 
         nil
