@@ -4,14 +4,16 @@ require 'open-uri'
 
 class Top30SkiResorts::Resorts
   
-  def self.scrape_resort_cell
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    reports = {}
+  # def self.scrape_resort_cell
+  #   document = Nokogiri::HTML(open('https://www.zrankings.com/'))
+  #   reports = {}
     
-    binding.pry
+  #   #mountain.css("a")[1].attributes["href"].value = resort link?
+  #   #mountain.css("span.desktop-700").children.text = resort state?
     
-    document.css("tbody.single-resort-cell")
-  end 
+  #   document.css("tbody.single-resort-cell").each do |mountain|
+      
+  # end 
   
   #want to return array with link to each resort in particular state in the top 30.
   
@@ -126,4 +128,3 @@ end
     #Do I need a different way to discern the states/which resort links to pull up?
     #document.css("td.name-rank")[0..29].children.children[2].text
     #document.search("td.name-rank")[0..29].children[0].attr("href")
-    
