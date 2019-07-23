@@ -11,7 +11,7 @@ class Top30SkiResorts::Scraper
   #   #mountain.css("a")[1].attributes["href"].value = resort link?
   #   #mountain.css("span.desktop-700").children.text = resort state?
     
-  #   document.css("tbody.single-resort-cell").each do |mountain|
+  #   document.css("tbody.single-resort-cell span.desktop-700").each do |mountain|
       
   # end 
   
