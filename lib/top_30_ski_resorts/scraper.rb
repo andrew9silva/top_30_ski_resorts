@@ -5,7 +5,7 @@ require 'open-uri'
 class Top30SkiResorts::Scraper
   def self.scrape_resort_cell
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    reports = {}
+    
     
     #mountain.css("a")[1].attributes["href"].value = resort link?
     #mountain.css("span.desktop-700").children.text = resort state?
