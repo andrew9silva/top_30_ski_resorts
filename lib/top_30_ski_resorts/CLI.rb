@@ -29,21 +29,21 @@ class Top30SkiResorts::CLI
      when "Done"
        puts "Maybe next time."
      when "Alaska"
-       print Top30SkiResorts::Resorts.alaska
+       print Top30SkiResorts::Mountain.alaska
      when "California"
-       print Top30SkiResorts::Resorts.california
+       print Top30SkiResorts::Mountain.california
      when "Canada"
-       print Top30SkiResorts::Resorts.canada
+       print Top30SkiResorts::Mountain.canada
      when "Colorado"
-       print Top30SkiResorts::Resorts.colorado
+       print Top30SkiResorts::Mountain.colorado
      when "Montana"
-       print Top30SkiResorts::Resorts.montana
+       print Top30SkiResorts::Mountain.montana
      when "New Mexico"
-       print Top30SkiResorts::Resorts.new_mexico
+       print Top30SkiResorts::Mountain.new_mexico
      when "Utah"
-       print Top30SkiResorts::Resorts.utah
+       print Top30SkiResorts::Mountain.utah
      when "Wyoming"
-       print Top30SkiResorts::Resorts.wyoming
+       print Top30SkiResorts::Mountain.wyoming
      else 
        puts "I guess there aren't any awesome resorts there..."
      end
