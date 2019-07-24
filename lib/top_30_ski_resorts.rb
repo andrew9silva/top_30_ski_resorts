@@ -6,7 +6,8 @@ module Top30SkiResorts
 end
 
 require_relative './top_30_ski_resorts/CLI'
-require_relative './top_30_ski_resorts/resorts'
+require_relative './top_30_ski_resorts/mountain'
+require_relative './top_30_ski_resorts/scraper'
 require 'nokogiri'
 require 'pry'
 require 'open-uri'

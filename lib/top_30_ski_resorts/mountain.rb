@@ -1,6 +1,6 @@
 class Top30SkiResorts::Mountain
   
-  attr_accessor :name :state :full_report
+  attr_accessor :name, :state, :full_report
   
   @@all_resorts = []
   
