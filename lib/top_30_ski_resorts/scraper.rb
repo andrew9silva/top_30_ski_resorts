@@ -3,6 +3,17 @@ require 'nokogiri'
 require 'open-uri'
 
 class Top30SkiResorts::Scraper
+  def self.scrape_resort_cell
+    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
+    reports = {}
+    
+    #mountain.css("a")[1].attributes["href"].value = resort link?
+    #mountain.css("span.desktop-700").children.text = resort state?
+    
+    document.css("tbody.single-resort-cell span.desktop-700").each do |mountain|
+      
+  end 
+end
   
   # def self.scrape_resort_cell
   #   document = Nokogiri::HTML(open('https://www.zrankings.com/'))
@@ -25,103 +36,7 @@ class Top30SkiResorts::Scraper
   #document.css("table.index-table-2017").each do |mountain|
   
    
-  def self.alaska
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    mountains =[]
-    
-    document.css("table.index-table-2017").each do |mountain|
-      states = {}
-      states[:alaska] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "AK" }
-      mountains << states
-    end
-    mountains
-  end
   
-  def self.california
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    mountains =[]
-    
-    document.css("table.index-table-2017").each do |mountain|
-      states = {}
-      states[:california] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "CA" }
-      mountains << states
-    end
-    mountains
-  end
-  
-  def self.canada
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    mountains =[]
-    
-    document.css("table.index-table-2017").each do |mountain|
-      states = {}
-      states[:canada] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "BC" }
-      mountains << states
-    end
-    mountains
-  end
-  
-  def self.colorado
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    mountains =[]
-    
-    document.css("table.index-table-2017").each do |mountain|
-      states = {}
-      states[:colorado] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "CO" }
-      mountains << states
-    end
-    mountains
-  end
-  
-  def self.montana
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    mountains =[]
-    
-    document.css("table.index-table-2017").each do |mountain|
-      states = {}
-      states[:montana] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "MT" }
-      mountains << states
-    end
-    mountains
-  end
-  
-  def self.new_mexico
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    mountains =[]
-    
-    document.css("table.index-table-2017").each do |mountain|
-      states = {}
-      states[:new_mexico] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "NM" }
-      mountains << states
-    end
-    mountains
-  end
-  
-  def self.utah 
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    mountains =[]
-    
-    document.css("table.index-table-2017").each do |mountain|
-      states = {}
-      states[:utah] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "UT" }
-      mountains << states
-    end
-    mountains
-  end
-  
-  def self.wyoming
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
-    mountains =[]
-    
-    document.css("table.index-table-2017").each do |mountain|
-      states = {}
-      states[:wyoming] = mountain.css(".desktop-700").children.text.scan(/(\w{2})/).flatten.select{ |x| x == "WY" }
-      mountains << states
-    end
-    mountains
-  end
-  
-end
 
 #the if portion here is not working appropriately.  Got "test" to be returned when running./bin/ski_resorts.rb
     
