@@ -12,4 +12,13 @@ class Top30SkiResorts::States
   def save
     @@all_states << self
   end
+  
+  def self.all 
+    if @@all_states.empty?
+      Top30SkiResorts::Scraper.scrape_states
+    else
+      nil 
+    end
+    @@all_states
+  end
 end

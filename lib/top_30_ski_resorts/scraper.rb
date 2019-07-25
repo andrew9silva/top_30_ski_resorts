@@ -3,6 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 
 class Top30SkiResorts::Scraper
+  
   def self.scrape_resorts(state)
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
   
