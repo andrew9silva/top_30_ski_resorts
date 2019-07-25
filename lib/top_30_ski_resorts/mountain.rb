@@ -19,4 +19,12 @@ class Top30SkiResorts::Mountain
     @@all_resorts
   end
   
+  def add_to_state
+    if Top30SkiResorts::States.resorts.include?(self)
+      nil 
+    else
+      Top30SkiResorts::States.resorts << self
+    end
+  end
+  
 end

@@ -14,6 +14,14 @@ class Top30SkiResorts::States
     @@all_states << self
   end
   
+  def grab_resorts
+    if self.resorts.empty?
+      Top30SkiResorts::Scraper.scrape_resorts(self)
+    else
+      nil
+    end
+  end
+  
   def self.all 
     if @@all_states.empty?
       Top30SkiResorts::Scraper.scrape_states
