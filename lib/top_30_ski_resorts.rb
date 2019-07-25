@@ -8,6 +8,7 @@ end
 require_relative './top_30_ski_resorts/CLI'
 require_relative './top_30_ski_resorts/mountain'
 require_relative './top_30_ski_resorts/scraper'
+require_relative './top_30_ski_resorts/states'
 require 'nokogiri'
 require 'pry'
 require 'open-uri'
