@@ -7,9 +7,10 @@ class Top30SkiResorts::States
   def initialize(state, resorts)
     @state = state
     @resorts = []
+    add_state
   end
   
-  def save
+  def add_state
     @@all_states << self
   end
   
