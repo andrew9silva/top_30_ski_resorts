@@ -14,8 +14,10 @@ class Top30SkiResorts::Scraper
       name = mountain.children[3].children[3].children[0].text
       state = mountain.children[3].children[3].children[5].children.text
       full_report = mountain.children.children[22].children[0].attr("href")
-      @@all << Top30SkiResorts::Mountain.new(name, state, full_report)
+      Top30SkiResorts::Mountain.new(name, state, full_report)
+      @@all << state
     end
+    @@all
   end 
   
   def scrape_states

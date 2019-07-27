@@ -1,8 +1,8 @@
 class Top30SkiResorts::CLI
   
- def greeting
+ def resorts
   puts "Where will you be skiing this year?"
-  Top30SkiResorts::Scraper.scrape_resorts
+  puts Top30SkiResorts::Scraper.scrape_resorts
  end
   
   
