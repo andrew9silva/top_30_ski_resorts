@@ -1,13 +1,11 @@
 class Top30SkiResorts::States 
   
-  attr_accessor :state, :resorts
+  attr_accessor :state
   
   @@all_states = []
   
-  def initialize(state, resorts)
+  def initialize(state)
     @state = state
-    @resorts = []
-    @resorts << resorts
     add_state
   end
   
@@ -15,20 +13,7 @@ class Top30SkiResorts::States
     @@all_states << self
   end
   
-  def grab_resorts
-    if self.resorts.empty?
-      Top30SkiResorts::Scraper.scrape_resorts(self)
-    else
-      nil
-    end
-  end
-  
   def self.all 
-    if @@all_states.empty?
-      Top30SkiResorts::Scraper.scrape_states
-    else
-      nil 
-    end
     @@all_states
   end
 end
