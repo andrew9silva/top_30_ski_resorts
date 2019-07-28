@@ -2,7 +2,7 @@ class Top30SkiResorts::CLI
   
  def resorts
    
-   puts "Are you going on a ski trip this year? (Yes or No)"
+   puts "Do you want to ski one of the best resorts in North America? (Yes or No)"
    input = gets.strip
    if input == "Yes"
     puts Top30SkiResorts::Scraper.scrape_states.uniq
