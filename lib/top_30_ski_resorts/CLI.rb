@@ -6,6 +6,7 @@ class Top30SkiResorts::CLI
    input = gets.strip
    if input == "Yes"
      choose_state
+     choose_resort
      
    elsif input == "No"
     puts "That's lame"
@@ -28,8 +29,22 @@ class Top30SkiResorts::CLI
    else
      puts "That wasn't an option"
      choose_state
+     
    end
   
+ end
+ 
+ def choose_resort
+   
+   puts "Which resort do you want more information about?"
+   
+   @input = gets.strip
+   
+   if Top30SkiResorts::Scraper.scrape_resorts.select { |resort| resort[:resort] == @input }
+     puts Top30SkiResorts::Scraper.scrape_resorts.select { |resort| resort[:resort] == @input }.map { |link| link[:link] }
+   else
+     nil 
+   end
  end
   
 end
