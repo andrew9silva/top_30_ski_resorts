@@ -1,12 +1,12 @@
 class Top30SkiResorts::Mountain
   
-  attr_accessor :name, :state, :full_report
+  attr_accessor :name, :state_name, :full_report
   
   @@all_resorts = []
   
-  def initialize(name, state, full_report)
+  def initialize(name, state_name, full_report)
     @name = name
-    @state = state
+    @state_name = state_name
     @full_report = full_report
     add_to_state
     add_resort

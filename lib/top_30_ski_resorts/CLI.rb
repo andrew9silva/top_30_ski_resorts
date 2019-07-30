@@ -5,6 +5,7 @@ class Top30SkiResorts::CLI
    puts "Do you want to ski one of the best resorts in North America? (Yes or No)"
    input = gets.strip
    if input == "Yes"
+     get_state
      choose_state
      
      
@@ -17,14 +18,15 @@ class Top30SkiResorts::CLI
    end
  end
  
- def gather_states
+ def get_state
    Top30SkiResorts::States.all
  end 
-   
  
- def self.choose_state
+ def choose_state
    puts "Which state will you be skiing in?"
-   puts Top30SkiResorts::States.all 
+   Top30SkiResorts::States.all.each_with_index do |state|
+     puts "#{state.state_name}."
+   end
  end
   
 end

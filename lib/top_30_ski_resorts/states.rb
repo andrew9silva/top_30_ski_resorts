@@ -1,11 +1,11 @@
 class Top30SkiResorts::States 
   
-  attr_accessor :state, :resorts 
+  attr_accessor :state_name, :resorts 
   
   @@all_states = []
   
   def initialize(state)
-    @state = state
+    @state_name = state_name
     @resorts = []
     add_state
   end
