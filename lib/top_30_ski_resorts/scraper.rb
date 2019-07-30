@@ -4,9 +4,6 @@ require 'open-uri'
 
 class Top30SkiResorts::Scraper
   
-  @@states = []
-  @@resorts = []
-  
   def self.scrape_resorts(state)
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
   
@@ -14,9 +11,7 @@ class Top30SkiResorts::Scraper
       name = mountain.children[3].children[3].children[0].text
       full_report = mountain.children.children[22].children[0].attr("href")
       Top30SkiResorts::Mountain.new(name, state, full_report)
-      @@resorts << { :resort => name, :location => state, :link => full_report }
     end
-    @@resorts
   end 
   
   def self.scrape_states
@@ -25,9 +20,7 @@ class Top30SkiResorts::Scraper
     document.css("table.index-table-2017 tbody.single-resort-cell").each do |mountain|
       state = mountain.children[3].children[3].children[5].children.text
       Top30SkiResorts::States.new(state)
-      @@states << state 
     end
-    @@states
   end
 end
   

@@ -8,13 +8,14 @@ class Top30SkiResorts::Mountain
     @name = name
     @state = state
     @full_report = full_report
+    add_to_state
     add_resort
   end
   
   def add_to_state
+    @state.resorts << self unless @state.resorts.include?(self)
+  end 
     
-    
-  
   def add_resort
     @@all_resorts << self
   end

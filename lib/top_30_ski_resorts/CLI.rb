@@ -6,7 +6,7 @@ class Top30SkiResorts::CLI
    input = gets.strip
    if input == "Yes"
      choose_state
-     choose_resort
+     
      
    elsif input == "No"
     puts "That's lame"
@@ -17,34 +17,14 @@ class Top30SkiResorts::CLI
    end
  end
  
- def choose_state
+ def gather_states
+   Top30SkiResorts::States.all
+ end 
    
-   puts Top30SkiResorts::Scraper.scrape_states.uniq
-   puts "Choose a place to see what resorts it has to offer:"
-   
-   @input = gets.strip
-   
-   if Top30SkiResorts::Scraper.scrape_states.uniq.any?{ |place| place == @input }
-     puts Top30SkiResorts::Scraper.scrape_resorts.select{ |place| place[:location] == @input }
-   else
-     puts "That wasn't an option"
-     choose_state
-     
-   end
-  
- end
  
- def choose_resort
-   
-   puts "Which resort do you want more information about?"
-   
-   @input = gets.strip
-   
-   if Top30SkiResorts::Scraper.scrape_resorts.select { |resort| resort[:resort] == @input }
-     puts Top30SkiResorts::Scraper.scrape_resorts.select { |resort| resort[:resort] == @input }.map { |link| link[:link] }
-   else
-     nil 
-   end
+ def self.choose_state
+   puts "Which state will you be skiing in?"
+   puts Top30SkiResorts::States.all 
  end
   
 end
