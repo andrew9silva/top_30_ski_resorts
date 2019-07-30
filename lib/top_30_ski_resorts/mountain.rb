@@ -11,6 +11,10 @@ class Top30SkiResorts::Mountain
     add_resort
   end
   
+  def add_to_state
+    
+    
+  
   def add_resort
     @@all_resorts << self
   end
