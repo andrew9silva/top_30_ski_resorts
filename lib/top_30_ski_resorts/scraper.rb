@@ -8,14 +8,14 @@ class Top30SkiResorts::Scraper
     document = Nokogiri::HTML(open('https://www.zrankings.com/'))
   
     document.css("table.index-table-2017 tbody.single-resort-cell").each do |mountain|
-      resort = mountain.children[3].children[3].children[0].text
+      name = mountain.children[3].children[3].children[0].text
       full_report = mountain.children.children[22].children[0].attr("href")
-      Top30SkiResorts::Mountain.new(resort, state_name, full_report)
+      Top30SkiResorts::Mountain.new(name, state_name, full_report)
     end
   end 
   
   def self.scrape_states
-    document = Nokogiri::HTML(open('https://www.zrankings.com/'))
+    document = Nokogiri::HTML(open('http://www.zrankings.com/'))
     
     document.css("table.index-table-2017 tbody.single-resort-cell").each do |mountain|
       state_name = mountain.children[3].children[3].children[5].children.text
