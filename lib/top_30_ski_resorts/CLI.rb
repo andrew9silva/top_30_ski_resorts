@@ -7,6 +7,7 @@ class Top30SkiResorts::CLI
    if input == "Yes"
      get_state
      choose_state
+     choose_resort
      
      
    elsif input == "No"
@@ -24,10 +25,19 @@ class Top30SkiResorts::CLI
  
  def choose_state
    puts "Which state will you be skiing in?"
-   Top30SkiResorts::States.all.map(&:state_name).uniq.each do |name|
-     puts "#{name}."
+   Top30SkiResorts::States.all.map(&:state_name).uniq.each do |state|
+     puts "#{state}."
    end
  end
+ 
+ def choose_resort
+   input = gets.strip
+   if input = Top30SkiResorts::States.all
+     puts "resort array for that state"
+   else
+     puts "That wasn't an option"
+   end
+ end 
 end
   
   
