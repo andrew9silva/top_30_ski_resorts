@@ -20,6 +20,7 @@ class Top30SkiResorts::CLI
  end
  
  def get_state
+   binding.pry
    Top30SkiResorts::States.all
  end 
  
@@ -29,15 +30,6 @@ class Top30SkiResorts::CLI
      puts "#{state}."
    end
  end
- 
- def choose_resort
-   input = gets.strip
-   if input = Top30SkiResorts::States.all
-     puts "resort array for that state"
-   else
-     puts "That wasn't an option"
-   end
- end 
 end
   
   

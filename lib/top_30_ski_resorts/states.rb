@@ -18,8 +18,4 @@ class Top30SkiResorts::States
     Top30SkiResorts::Scraper.scrape_states if @@all_states.empty?
     @@all_states
   end
-  
-  def get_resorts
-    Top30SkiResorts::Scraper.scrape_resorts(self) if @resorts.empty?
-  end 
 end
