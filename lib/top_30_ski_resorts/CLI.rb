@@ -24,12 +24,12 @@ class Top30SkiResorts::CLI
  
  def choose_state
    puts "Which state will you be skiing in?"
-   Top30SkiResorts::States.all.each do |state|
-     puts "#{state}."
+   Top30SkiResorts::States.all.each.with_index(1) do |state|
+     puts "#{state.state_name}."
    end
  end
-  
 end
+  
   
   
  

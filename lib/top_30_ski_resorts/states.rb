@@ -4,7 +4,7 @@ class Top30SkiResorts::States
   
   @@all_states = []
   
-  def initialize(state)
+  def initialize(state_name)
     @state_name = state_name
     @resorts = []
     add_state
