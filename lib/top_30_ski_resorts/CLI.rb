@@ -7,7 +7,6 @@ class Top30SkiResorts::CLI
    if input == "Yes"
      get_state
      choose_state
-     choose_resort
      
      
    elsif input == "No"
