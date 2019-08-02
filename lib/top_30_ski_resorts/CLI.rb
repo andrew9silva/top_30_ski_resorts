@@ -7,6 +7,7 @@ class Top30SkiResorts::CLI
    if input == "Yes"
      get_state
      choose_state
+     choose_resort
      
      
    elsif input == "No"
@@ -28,7 +29,17 @@ class Top30SkiResorts::CLI
      puts "#{state}."
    end
  end
+ 
+ def choose_resort
+   input = gets.strip
+   if Top30SkiResorts::States.all.each { |x| x.state_name == input }
+     puts "test success"
+   else
+     puts "test fail"
+   end
+ end
 end
+
   
   
   
