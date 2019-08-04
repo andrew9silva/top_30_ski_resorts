@@ -9,7 +9,6 @@ class Top30SkiResorts::Mountain
     @state_name = state_name
     @full_report = full_report
     add_resort
-    add_to_state
   end
     
   def add_resort
@@ -17,11 +16,12 @@ class Top30SkiResorts::Mountain
   end
   
   def self.all
+    Top30SkiResorts::Scraper.scrape_resorts if @@all_resorts.empty?
     @@all_resorts
   end
   
-  def add_to_state
-    Top30SkiResorts::States.resorts << self unless Top30SkiResorts::States.resorts.include?(self)
-  end 
+  #def add_to_state
+    #Top30SkiResorts::States.resorts << self unless Top30SkiResorts::States.resorts.include?(self)
+  #end 
   
 end
