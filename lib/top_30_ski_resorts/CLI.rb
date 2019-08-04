@@ -21,7 +21,6 @@ class Top30SkiResorts::CLI
  end
  
  def get_state
-   binding.pry
    Top30SkiResorts::States.all
  end 
  
@@ -36,7 +35,7 @@ class Top30SkiResorts::CLI
    input = gets.strip
    if Top30SkiResorts::States.all.any? { |x| x.state_name == input }
      puts "Choose a resort"
-     puts "Test Success" #want @resorts array returning here.
+     puts Top30SkiResorts::Mountain.all.keep_if { |x| x.state_name == input } #want @resorts array returning here.
    else
      puts "Sorry that's not an option"
      state_options
