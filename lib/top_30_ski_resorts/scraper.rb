@@ -18,7 +18,6 @@ class Top30SkiResorts::Scraper
   
     document.css("table.index-table-2017 tbody.single-resort-cell").each do |mountain|
       name = mountain.children[3].children[3].children[0].text
-      state_name = mountain.children[3].children[3].children[5].children.text
       full_report = mountain.children.children[22].children[0].attr("href")
       Top30SkiResorts::Mountain.new(name, state_name, full_report)
     end
