@@ -13,7 +13,7 @@ class Top30SkiResorts::Mountain
   end
   
   def add_to_state
-    @state_name.resorts << self unless @state_name.resorts.include?(self)
+    Top30SkiResorts::States.resorts << self unless Top30SkiResorts::States.resorts.include?(self)
   end 
     
   def add_resort
