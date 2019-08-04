@@ -30,14 +30,19 @@ class Top30SkiResorts::CLI
    end
  end
  
- def choose_resort
+ def choose_state
    input = gets.strip
    if Top30SkiResorts::States.all.each { |x| x.state_name == input }
-     puts "test success" #want @resorts array returning here.
+     puts "Choose a resort"
+     puts #want @resorts array returning here.
    else
      puts "test fail"
    end
  end
+ 
+ def resort_selection
+   
+   
 end
 
   
