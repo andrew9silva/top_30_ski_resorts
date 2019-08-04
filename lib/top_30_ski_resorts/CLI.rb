@@ -2,7 +2,7 @@ class Top30SkiResorts::CLI
   
  def resorts
    
-   puts "Do you want to ski one of the best resorts in North America? (Yes or No)"
+   puts "Do you want to ski one of the best resorts in North America? (Yes or No)".colorize(:green)
    input = gets.strip
    if input == "Yes"
      get_state
@@ -12,10 +12,10 @@ class Top30SkiResorts::CLI
      
      
    elsif input == "No"
-    puts "That's lame"
+    puts "That's lame".colorize(:green)
    
    else
-    puts "Not sure what you mean?"
+    puts "Not sure what you mean?".colorize(:green)
     resorts
    end
  end
@@ -25,19 +25,19 @@ class Top30SkiResorts::CLI
  end 
  
  def choose_state
-   puts "Which state will you be skiing in?"
+   puts "Which state will you be skiing in?".colorize(:green)
    Top30SkiResorts::States.all.map(&:state_name).uniq.each do |state|
-     puts "#{state}."
+     puts "#{state}.".colorize(:light_blue)
    end
  end
  
  def state_options
    input = gets.strip
    if Top30SkiResorts::States.all.any? { |x| x.state_name == input }
-     puts "Choose a resort"
-     puts Top30SkiResorts::Mountain.all.keep_if { |x| x.state_name == input } #want @resorts array returning here.
+     puts "Choose a resort".colorize(:green)
+     puts Top30SkiResorts::Mountain.all.keep_if { |x| x.state_name == input }.to_s #want @resorts array returning here.
    else
-     puts "Sorry that's not an option"
+     puts "Sorry that's not an option".colorize(:green)
      state_options
    end
  end
