@@ -6,7 +6,9 @@ class Top30SkiResorts::States
   
   def initialize(state_name)
     @state_name = state_name
+    @@all_states
     @resorts = []
+    add_state
   end
   
   def add_state
@@ -14,7 +16,6 @@ class Top30SkiResorts::States
   end
   
   def self.all
-    Top30SkiResorts::Scraper.scrape_states if @@all_states.empty?
     @@all_states
   end
   
