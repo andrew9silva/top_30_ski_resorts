@@ -8,6 +8,7 @@ class Top30SkiResorts::States
     @state_name = state_name
     @@all_states
     @resorts = []
+    @resorts << Top30SkiResorts::Mountain.all
     add_state
   end
   

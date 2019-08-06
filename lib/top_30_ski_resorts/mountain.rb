@@ -17,6 +17,7 @@ class Top30SkiResorts::Mountain
   end
   
   def self.all
+    Top30SkiResorts::Scraper.scrape_resorts if @@all_resorts.empty?
     @@all_resorts
   end
   

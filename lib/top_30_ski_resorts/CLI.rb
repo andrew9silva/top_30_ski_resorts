@@ -7,7 +7,7 @@ class Top30SkiResorts::CLI
      get_state
      choose_state
      state_options
-     
+     resort_selection
      
      
    elsif input == "No"
@@ -20,7 +20,6 @@ class Top30SkiResorts::CLI
  end
  
  def get_state
-   binding.pry
    Top30SkiResorts::States.all
  end 
  
@@ -35,12 +34,16 @@ class Top30SkiResorts::CLI
    input = gets.strip
    if Top30SkiResorts::States.all.any? { |x| x.state_name == input }
      puts "Choose a resort".colorize(:green)
-     puts Top30SkiResorts::States.all.keep_if { |x| x.state_name == input } #Need to convert to a string
+     puts Top30SkiResorts::States.all.keep_if { |x| x.state_name == input }.each(&:resorts).uniq.to_s
    else
      puts "Sorry that's not an option".colorize(:green)
      state_options
    end
  end
+ 
+ def resort_selection
+   puts "test"
+ end 
  
    
 end
