@@ -9,6 +9,7 @@ class Top30SkiResorts::Mountain
     @state_name = state_name
     @full_report = full_report
     @@all_resorts
+    add_resort
   end
     
   def add_resort
