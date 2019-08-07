@@ -42,10 +42,15 @@ class Top30SkiResorts::CLI
  end
  
  def resort_selection
-   puts "test"
- end 
- 
+   input = gets.strip
    
+   if 
+    puts "test"
+  else
+    puts "That wasn't an option"
+    resort_selection
+  end
+ end 
 end
 
   
