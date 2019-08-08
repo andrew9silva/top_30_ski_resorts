@@ -46,7 +46,7 @@ class Top30SkiResorts::CLI
    input = gets.strip
    
    if Top30SkiResorts::States.all.map.each(&:resorts).uniq[0][0].select { |x| x.name == input }
-    puts 
+    puts Top30SkiResorts::States.all.map.each(&:resorts).uniq[0][0].collect { |x| x.full_report }
    else
     puts "That wasn't an option"
     resort_selection
