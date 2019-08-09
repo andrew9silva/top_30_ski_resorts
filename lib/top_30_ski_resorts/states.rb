@@ -21,10 +21,12 @@ class Top30SkiResorts::States
     @@all_states
   end
   
-  def self.create(state_name)
-    self.new(state_name).tap do |state|
-      state.save
-    end
+  def self.find_or_create_by(state_name)
+   if @@all_states.detect { |x| x.state_name == state_name }
+     nil
+   else
+     self.new(state_name)
+   end
   end
   
   def resorts

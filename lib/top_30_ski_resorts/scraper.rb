@@ -9,7 +9,7 @@ class Top30SkiResorts::Scraper
     
     document.css("table.index-table-2017 tbody.single-resort-cell").each do |mountain|
       state_name = mountain.children[3].children[3].children[5].children.text
-      Top30SkiResorts::States.new(state_name)
+      Top30SkiResorts::States.find_or_create_by(state_name)
     end
   end
   
