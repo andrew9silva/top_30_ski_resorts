@@ -36,7 +36,7 @@ class Top30SkiResorts::CLI
      puts "Pick the number of the resort you want more information on.".colorize(:green)
      state_resorts = Top30SkiResorts::States.all.map.each(&:resorts).uniq[0][0].select! { |x| x.state_name == input }
      state_resorts.each.with_index(1) { |x, i| 
-       puts "#{i}. #{x.name}" 
+       puts "#{i}. #{x.name}".colorize(:light_blue) 
        
      }
    else
@@ -49,11 +49,20 @@ class Top30SkiResorts::CLI
    input = gets.strip.to_i
    
    if Top30SkiResorts::States.all.map.each(&:resorts).uniq[0][0].select { |x| x.name == input }
-    puts Top30SkiResorts::States.all.map.each(&:resorts).uniq[0][0].collect { |x| x.full_report }[input - 1]
+    puts Top30SkiResorts::States.all.map.each(&:resorts).uniq[0][0].collect { |x| x.full_report }[input - 1].colorize(:light_blue)
    else
     puts "That wasn't an option"
     resort_selection
    end
+   puts "Do you want to select another? (Yes or No)".colorize(:green)
+   input = gets.strip
+   if input == "Yes"
+    resort_selection
+   elsif input == "No"
+    puts "See ya next time!" 
+  else 
+    puts "What are you triyng to say?"
+  end 
  end 
 end
 
