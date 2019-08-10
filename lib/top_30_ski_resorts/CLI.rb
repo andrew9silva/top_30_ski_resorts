@@ -57,11 +57,13 @@ class Top30SkiResorts::CLI
    puts "Do you want to select another? (Yes or No)".colorize(:green)
    input = gets.strip
    if input == "Yes"
+    puts "Pick the number of the resort you want more information on.".colorize(:green) 
     resort_selection
    elsif input == "No"
     puts "See ya next time!" 
   else 
-    puts "What are you triyng to say?"
+    puts "Pick the number of the resort you want more information on.".colorize(:green) 
+    resort_selection
   end 
  end 
 end
