@@ -52,13 +52,12 @@ class Top30SkiResorts::CLI
     puts Top30SkiResorts::States.all.map.each(&:resorts).uniq[0][0].collect { |x| x.full_report }[input - 1].colorize(:light_blue)
    else
     puts "That wasn't an option"
-    resort_selection
+    choose_state
    end
    puts "Do you want to select another? (Yes or No)".colorize(:green)
    input = gets.strip
    if input == "Yes"
-    puts "Pick the number of the resort you want more information on.".colorize(:green) 
-    resort_selection
+    resorts
    elsif input == "No"
     puts "See ya next time!" 
   else 
