@@ -1,9 +1,7 @@
 
 # Top30SkiResorts
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/top_30_ski_resorts`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Ruby Gem provides a CLI to find information on any of the top 30 ski resorts in North America as rated on Zrankings.
 
 ## Installation
 
@@ -23,7 +21,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Type what is written below and follow the prompts:
+
+$ top_30_ski_resorts 
 
 ## Development
 
