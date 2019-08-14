@@ -19,6 +19,12 @@ class Top30SkiResorts::CLI
    end
  end
  
+ def restart 
+   choose_state
+   state_options
+   resort_selection
+ end 
+ 
  def get_state
    Top30SkiResorts::States.all
  end 
@@ -57,10 +63,10 @@ class Top30SkiResorts::CLI
    puts "Do you want to select another? (Yes or No)".colorize(:green)
    input = gets.strip
    if input == "Yes"
-    resorts
+    restart
    elsif input == "No"
     puts "See ya next time!" 
-  else 
+   else 
     puts "Pick the number of the resort you want more information on.".colorize(:green) 
     resort_selection
   end 
