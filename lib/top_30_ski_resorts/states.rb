@@ -8,7 +8,6 @@ class Top30SkiResorts::States
     @state_name = state_name
     @@all_states
     @resorts = []
-    @resorts << Top30SkiResorts::Mountain.all
     add_state
   end
   
@@ -29,16 +28,11 @@ class Top30SkiResorts::States
    end
   end
   
-  def resorts
+  def self.resorts
     @resorts
   end 
   
   def add_resorts(resort)
-    if resort.state == nil 
-      resort.state = self
-    else 
-      nil
-    end
     if @resorts.include?(resort)
       nil 
     else

@@ -6,9 +6,9 @@ class Top30SkiResorts::Mountain
   
   def initialize(name, state_name, full_report)
     @name = name
-    @state_name = state_name
     @full_report = full_report
-    @@all_resorts
+    @state = Top30SkiResorts::State.find_or_create_by(state_name)
+    Top30SkiResorts::States.resorts << self
     add_resort
   end
     
