@@ -8,7 +8,7 @@ class Top30SkiResorts::Mountain
     @name = name
     @full_report = full_report
     @state = Top30SkiResorts::State.find_or_create_by(state_name)
-    Top30SkiResorts::States.resorts << self
+    @state.resorts << self
     add_resort
   end
     
