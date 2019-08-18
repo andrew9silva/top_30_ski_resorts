@@ -2,6 +2,7 @@ class Top30SkiResorts::CLI
  def resorts
    
    puts "Do you want to ski one of the best resorts in North America? (Yes or No)".colorize(:green)
+   binding.pry
    input = gets.strip
    if input == "Yes"
      get_state
