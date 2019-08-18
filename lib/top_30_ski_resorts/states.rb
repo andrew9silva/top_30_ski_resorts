@@ -6,9 +6,9 @@ class Top30SkiResorts::States
   
   def initialize(state_name)
     @state_name = state_name
-    @@all_states
-    @resorts = []
+    @mountains = []
     add_state
+    @@all_states
   end
   
   def add_state
@@ -27,17 +27,9 @@ class Top30SkiResorts::States
    end
   end
   
-  def self.resorts
-    @resorts
+  def self.mountains
+    @mountains
   end 
   
-  def add_resorts(resort)
-    if @resorts.include?(resort)
-      nil 
-    else
-      @resorts << resort 
-    end
-    resort
-  end 
     
 end
