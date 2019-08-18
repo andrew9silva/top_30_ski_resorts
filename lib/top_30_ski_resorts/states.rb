@@ -6,9 +6,7 @@ class Top30SkiResorts::States
   
   def initialize(state_name)
     @state_name = state_name
-    @mountains = []
     add_state
-    @@all_states
   end
   
   def add_state
@@ -21,15 +19,9 @@ class Top30SkiResorts::States
   
   def self.find_or_create_by(state_name)
    if @@all_states.detect { |x| x.state_name == state_name }
-     nil
+     state_name
    else
      self.new(state_name)
    end
   end
-  
-  def self.mountains
-    @mountains
-  end 
-  
-    
 end
