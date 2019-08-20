@@ -32,18 +32,18 @@ class Top30SkiResorts::CLI
  
  def choose_state
    puts "Which state will you be skiing in?".colorize(:green)
-   @chosen_state = Top30SkiResorts::States.all.each do |state|
+   Top30SkiResorts::States.all.each do |state|
      puts "#{state.state_name}".colorize(:light_blue)
    end
  end
  def state_options
    input = gets.strip
    
-   if input == @chosen_state.any?
-     puts "test"
+   if input == 
+     puts Top30SkiResorts::Mountain.all.inspect
    else
      puts "Sorry that's not an option".colorize(:green)
-     state_options
+     choose_state
    end
  end
  
