@@ -19,7 +19,7 @@ class Top30SkiResorts::States
   
   def self.find_or_create_by(state_name)
    if @@all_states.detect { |x| x.state_name == state_name }
-     state_name
+     self
    else
      self.new(state_name)
    end

@@ -26,6 +26,7 @@ class Top30SkiResorts::CLI
  end 
  
  def get_state
+   
    Top30SkiResorts::Mountain.all
    Top30SkiResorts::States.all
  end 
@@ -37,10 +38,11 @@ class Top30SkiResorts::CLI
    end
  end
  def state_options
+   binding.pry
    input = gets.strip
    
-   if input == 
-     puts Top30SkiResorts::Mountain.all.inspect
+   if input == Top30SkiResorts::States.all.map.each(&:state_name).any?
+     puts "test success"
    else
      puts "Sorry that's not an option".colorize(:green)
      choose_state
