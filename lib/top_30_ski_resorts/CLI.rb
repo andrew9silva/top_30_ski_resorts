@@ -38,10 +38,10 @@ class Top30SkiResorts::CLI
    end
  end
  def state_options
-   binding.pry
+   
    input = gets.strip
    
-   if input == Top30SkiResorts::States.all.map.each(&:state_name).any?
+   if Top30SkiResorts::States.all.map.each(&:state_name).include?(input)
      puts "test success"
    else
      puts "Sorry that's not an option".colorize(:green)
