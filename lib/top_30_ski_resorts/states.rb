@@ -26,6 +26,9 @@ class Top30SkiResorts::States
    end
   end
   
+  def resorts
+    @resorts
+  end
   
-
+  def add_resort(mountain)
 end

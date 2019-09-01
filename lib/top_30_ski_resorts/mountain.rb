@@ -21,5 +21,4 @@ class Top30SkiResorts::Mountain
     @@all_resorts
   end
   
-  
 end
