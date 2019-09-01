@@ -25,5 +25,7 @@ class Top30SkiResorts::States
      self.new(state_name)
    end
   end
+  
+  
 
 end

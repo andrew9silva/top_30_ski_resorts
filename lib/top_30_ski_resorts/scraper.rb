@@ -21,7 +21,7 @@ class Top30SkiResorts::Scraper
       state_name = mountain.children[3].children[3].children[5].children.text
       full_report = mountain.children.children[22].children[0].attr("href")
       resort_state = mountain.children[3].children[3].children[5].children.text
-      Top30SkiResorts::Mountain.new(name, state_name, full_report, resort_state)
+      Top30SkiResorts::Mountain.new(name, state_name, full_report)
     end
   end 
   
