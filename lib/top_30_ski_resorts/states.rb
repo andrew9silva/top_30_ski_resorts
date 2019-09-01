@@ -6,6 +6,7 @@ class Top30SkiResorts::States
   
   def initialize(state_name)
     @state_name = state_name
+    @resorts = []
     add_state
   end
   
@@ -24,4 +25,5 @@ class Top30SkiResorts::States
      self.new(state_name)
    end
   end
+
 end

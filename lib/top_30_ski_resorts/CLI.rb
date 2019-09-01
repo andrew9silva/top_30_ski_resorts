@@ -26,7 +26,7 @@ class Top30SkiResorts::CLI
  end 
  
  def get_state
-   
+   binding.pry
    Top30SkiResorts::Mountain.all
    Top30SkiResorts::States.all
  end 
