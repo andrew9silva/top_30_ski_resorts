@@ -20,5 +20,4 @@ class Top30SkiResorts::Mountain
     Top30SkiResorts::Scraper.scrape_resorts if @@all_resorts.empty?
     @@all_resorts
   end
-  
 end
