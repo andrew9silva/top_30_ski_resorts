@@ -6,7 +6,6 @@ class Top30SkiResorts::States
   
   def initialize(state_name)
     @state_name = state_name
-    @resorts = []
     add_state
     add_resort
   end
@@ -28,8 +27,9 @@ class Top30SkiResorts::States
   end
   
   def add_resort
+    @resorts = []
     Top30SkiResorts::Mountain.all.each do |mountain|
-      if mountain == Top30SkiResorts::States.all.each { |state| state.state_name }
+      if mountain.state_name == Top30SkiResorts::States.all.each { |state| state.state_name }
         @resorts << mountain 
       else
         nil 
