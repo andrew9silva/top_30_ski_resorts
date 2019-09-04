@@ -10,7 +10,7 @@ class Top30SkiResorts::Mountain
     @state_name = state_name
     Top30SkiResorts::States.find_or_create_by(state_name)
     add_resort
-    add-to_state
+    add_to_state
   end
     
   def add_resort
