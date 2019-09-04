@@ -10,6 +10,7 @@ class Top30SkiResorts::Mountain
     @state_name = state_name
     Top30SkiResorts::States.find_or_create_by(state_name)
     add_resort
+    add-to_state
   end
     
   def add_resort
@@ -19,5 +20,8 @@ class Top30SkiResorts::Mountain
   def self.all
     Top30SkiResorts::Scraper.scrape_resorts if @@all_resorts.empty?
     @@all_resorts
+  end
+  
+  def add_to_state
   end
 end

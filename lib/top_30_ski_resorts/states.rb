@@ -8,7 +8,6 @@ class Top30SkiResorts::States
     @state_name = state_name
     @resorts = []
     add_state
-    add_resort
   end
   
   def add_state
@@ -26,16 +25,5 @@ class Top30SkiResorts::States
      self.new(state_name)
    end
   end
-  
-  def add_resort
-    @resorts = []
-    Top30SkiResorts::Mountain.all.each do |mountain|
-      if mountain.state_name == Top30SkiResorts::States.all.map.each(&:state_name)
-        @resorts << mountain 
-      else
-        nil 
-      end
-    end
-    @resorts 
-  end 
+
 end
