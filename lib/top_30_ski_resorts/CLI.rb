@@ -7,7 +7,7 @@ class Top30SkiResorts::CLI
      get_state
      choose_state
      state_options
-     resort_selection
+     #resort_selection
      
      
    elsif input == "No"
@@ -41,7 +41,7 @@ class Top30SkiResorts::CLI
    chosen_state = Top30SkiResorts::States.all.keep_if { |x| x.state_name == input }
    
    if Top30SkiResorts::States.all.each { |x| x.state_name == input } 
-     puts chosen_state[2].to_s
+     puts chosen_state[0].resorts[0..-1].inspect
    else
      puts "Sorry that's not an option".colorize(:green)
      choose_state
