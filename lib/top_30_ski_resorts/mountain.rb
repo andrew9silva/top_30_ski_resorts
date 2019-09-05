@@ -23,5 +23,10 @@ class Top30SkiResorts::Mountain
   end
   
   def add_to_state
+    Top30SkiResorts::States.all.each do |state|
+      if state.state_name == self.state_name
+        state.resorts << self
+      end 
+    end
   end
 end

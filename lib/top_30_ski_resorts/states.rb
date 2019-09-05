@@ -1,6 +1,6 @@
 class Top30SkiResorts::States 
   
-  attr_accessor :state_name 
+  attr_accessor :state_name, :resorts
   
   @@all_states = []
   
