@@ -7,7 +7,7 @@ class Top30SkiResorts::CLI
      get_state
      choose_state
      state_options
-     #resort_selection
+     choose_resort
      
      
    elsif input == "No"
@@ -22,7 +22,7 @@ class Top30SkiResorts::CLI
  def restart 
    choose_state
    state_options
-   #resort_selection
+   
  end 
  
  def get_state
@@ -38,15 +38,26 @@ class Top30SkiResorts::CLI
  end
  def state_options
    input = gets.strip
-   chosen_state = Top30SkiResorts::States.all.keep_if { |x| x.state_name == input }
+   @chosen_state = Top30SkiResorts::States.all.keep_if { |x| x.state_name == input }
    
-   if Top30SkiResorts::States.all.each { |x| x.state_name == input } 
-     puts chosen_state[0].resorts[0..-1].inspect
+   if Top30SkiResorts::States.all.each { |x| x.state_name == input }
+     puts @chosen_state[0].resorts[0..-1].map(&:name).inspect
    else
      puts "Sorry that's not an option".colorize(:green)
      choose_state
    end
  end
+ 
+ def choose_resort
+   puts "Which resort do you want more information on?"
+   input = gets.strip
+   if  @chosen_state[0].resorts[0..-1].map.each(&:name).include?(input)
+     puts "test"
+   else
+     nil 
+   end
+ end 
+   
  
 end
 
