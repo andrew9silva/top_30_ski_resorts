@@ -8,7 +8,7 @@ class Top30SkiResorts::CLI
      choose_state
      state_options
      choose_resort
-     
+     finished?
      
    elsif input == "No"
     puts "That's lame".colorize(:green)
@@ -19,11 +19,6 @@ class Top30SkiResorts::CLI
    end
  end
  
- def restart 
-   choose_state
-   state_options
-   
- end 
  
  def get_state
    Top30SkiResorts::Mountain.all
@@ -54,12 +49,31 @@ class Top30SkiResorts::CLI
    @resort_report = @chosen_state.map(&:resorts)[0]
    
    if  @chosen_state[0].resorts[0..-1].keep_if { |x| x.name == input }
-     puts @resort_report.detect { |resort| resort.name == input }.full_report.inspect
+     puts @resort_report.detect { |resort| resort.name == input }.full_report.inspect.colorize(:green)
    else
      nil 
    end
+   
  end 
    
+ def finished?
+   puts "Do you want to check out any more resorts? (Yes or No)".colorize(:green)
+   input = gets.strip
+   
+   if input == "Yes"
+     choose_state
+     state_options
+     choose_resort
+     finished?
+     
+   elsif input == "No"
+   puts "See ya next time!"
+   
+   else 
+     puts "What are you trying to say?"
+   end 
+   
+ end 
  
 end
 
