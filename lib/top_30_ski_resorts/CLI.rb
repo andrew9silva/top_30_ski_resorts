@@ -51,10 +51,10 @@ class Top30SkiResorts::CLI
  def choose_resort
    puts "Which resort do you want more information on?".colorize(:green)
    input = gets.strip
-   @resort_report = @chosen_state.map(&:resorts)[0].map(&:full_report)
+   @resort_report = @chosen_state.map(&:resorts)[0]
    
-   if  @chosen_state[0].resorts[0..-1].map.each(&:name).include?(input)
-     puts @resort_report.inspect.colorize(:green)
+   if  @chosen_state[0].resorts[0..-1].keep_if { |x| x.name == input }
+     puts @resort_report.detect { |resort| resort.name == input }.full_report.inspect
    else
      nil 
    end
