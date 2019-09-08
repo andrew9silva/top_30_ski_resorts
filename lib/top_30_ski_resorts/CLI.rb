@@ -61,10 +61,11 @@ class Top30SkiResorts::CLI
    input = gets.strip
    
    if input == "Yes"
-     choose_state
-     state_options
-     choose_resort
-     finished?
+    get_state
+    choose_state
+    state_options
+    choose_resort
+    finished? 
      
    elsif input == "No"
    puts "See ya next time!"
