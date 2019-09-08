@@ -51,7 +51,8 @@ class Top30SkiResorts::CLI
    if  @chosen_state[0].resorts[0..-1].keep_if { |x| x.name == input }
      puts @resort_report.detect { |resort| resort.name == input }.full_report.inspect.colorize(:green)
    else
-     nil 
+     puts "That isn't an option".colorize(:green)
+     choose_resorts
    end
    
  end 
@@ -68,10 +69,10 @@ class Top30SkiResorts::CLI
     finished? 
      
    elsif input == "No"
-   puts "See ya next time!"
+   puts "See ya next time!".colorize(:green)
    
    else 
-     puts "What are you trying to say?"
+     puts "What are you trying to say?".colorize(:green)
    end 
    
  end 
