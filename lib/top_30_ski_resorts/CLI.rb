@@ -37,7 +37,7 @@ class Top30SkiResorts::CLI
 
    if Top30SkiResorts::States.all.each { |x| x.state_name == input }
      puts @chosen_state.map(&:resorts)[0].map(&:name).inspect.colorize(:red)
-   else
+   else 
      puts "Sorry that's not an option".colorize(:green)
      choose_state
    end
@@ -49,10 +49,10 @@ class Top30SkiResorts::CLI
    @resort_report = @chosen_state.map(&:resorts)[0]
    
    if  @chosen_state[0].resorts[0..-1].keep_if { |x| x.name == input }
-     puts @resort_report.detect { |resort| resort.name == input }.full_report.inspect.colorize(:green)
+     puts @resort_report.detect { |resort| resort.name == input }.full_report.inspect.colorize(:light_blue)
    else
      puts "That isn't an option".colorize(:green)
-     choose_resorts
+     choose_resort
    end
    
  end 
@@ -73,6 +73,7 @@ class Top30SkiResorts::CLI
    
    else 
      puts "What are you trying to say?".colorize(:green)
+     finished?
    end 
    
  end 
