@@ -33,10 +33,10 @@ class Top30SkiResorts::CLI
  end
  def state_options
    input = gets.strip
-   @chosen_state = Top30SkiResorts::States.all.keep_if { |x| x.state_name == input }
+   @chosen_state = Top30SkiResorts::States.all.keep_if { |x| x.state_name == input }.map(&:resorts)[0]
 
    if Top30SkiResorts::States.all.each { |x| x.state_name == input }
-     puts @chosen_state.map(&:resorts)[0].map(&:name).inspect.colorize(:red)
+     puts @chosen_state.find_all { |resort| resort.state_name == input }.map(&:name).inspect.colorize(:red)
    else 
      puts "Sorry that's not an option".colorize(:green)
      choose_state
@@ -46,10 +46,8 @@ class Top30SkiResorts::CLI
  def choose_resort
    puts "Which resort do you want more information on?".colorize(:green)
    input = gets.strip
-   @resort_report = @chosen_state.map(&:resorts)[0]
-   
-   if  @chosen_state[0].resorts[0..-1].keep_if { |x| x.name == input }
-     puts @resort_report.detect { |resort| resort.name == input }.full_report.inspect.colorize(:light_blue)
+   if  @chosen_state.keep_if { |x| x.name == input }
+     puts @chosen_state.detect { |resort| resort.name == input }.full_report.inspect.colorize(:light_blue)
    else
      puts "That isn't an option".colorize(:green)
      choose_resort
