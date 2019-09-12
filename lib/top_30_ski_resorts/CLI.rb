@@ -7,8 +7,6 @@ class Top30SkiResorts::CLI
      get_state
      choose_state
      state_options
-     choose_resort
-     finished?
      
    elsif input == "No"
     puts "That's lame".colorize(:green)
@@ -30,13 +28,15 @@ class Top30SkiResorts::CLI
    Top30SkiResorts::States.all.each do |state|
      puts "#{state.state_name}".colorize(:light_blue)
    end
+   state_options
  end
  def state_options
    input = gets.strip
-   @chosen_state = Top30SkiResorts::States.all.keep_if { |x| x.state_name == input }.map(&:resorts)[0]
+   @chosen_state = Top30SkiResorts::States.all.detect { |x| x.state_name == input } 
 
-   if Top30SkiResorts::States.all.each { |x| x.state_name == input }
-     puts @chosen_state.find_all { |resort| resort.state_name == input }.map(&:name).inspect.colorize(:red)
+   if @chosen_state
+     @chosen_state.resorts.each { |x| puts x.name.colorize(:red) }
+     choose_resort
    else 
      puts "Sorry that's not an option".colorize(:green)
      choose_state
@@ -46,8 +46,10 @@ class Top30SkiResorts::CLI
  def choose_resort
    puts "Which resort do you want more information on?".colorize(:green)
    input = gets.strip
-   if  @chosen_state.keep_if { |x| x.name == input }
-     puts @chosen_state.detect { |resort| resort.name == input }.full_report.inspect.colorize(:light_blue)
+   @chosen_resort = @chosen_state.resorts.detect { |x| x.name == input }
+   if  @chosen_resort
+     puts @chosen_resort.full_report.colorize(:light_blue)
+     finished?
    else
      puts "That isn't an option".colorize(:green)
      choose_resort
@@ -63,12 +65,10 @@ class Top30SkiResorts::CLI
     get_state
     choose_state
     state_options
-    choose_resort
-    finished? 
      
    elsif input == "No"
    puts "See ya next time!".colorize(:green)
-   
+   exit 
    else 
      puts "What are you trying to say?".colorize(:green)
      finished?
